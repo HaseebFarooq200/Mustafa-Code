@@ -1,0 +1,75 @@
+/* The main container for the entire layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Equivalent to shadow-md in Tailwind */
+}
+
+/* For larger screens, align the children in a row and add spacing between */
+@media (min-width: 1024px) {
+
+    /* Tailwind's 'lg' screen size */
+    .container {
+        flex-direction: row;
+    }
+
+    .container>.sidebar-container {
+        margin-right: 8px;
+        /* space-x-2 in Tailwind */
+    }
+}
+
+/* Sidebar styling */
+.sidebar-container {
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* shadow-md */
+    width: 100%;
+    background-color: #ffffff;
+    /* bg-[#FFFFFF] */
+
+    /* rounded-md */
+    /* height: 100vh; */
+    /* h-[100vh] */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.sidebar-container::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Edge */
+}
+
+@media (min-width: 1024px) {
+    .sidebar-container {
+        width: 25%;
+        /* lg:w-[25%] */
+    }
+}
+
+/* Main content styling */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* w-[100%] */
+    height: 100vh;
+    /* h-[100vh] */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.content-container::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Edge */
+}
+
+/* Scroll only on large screens */
+@media (min-width: 1024px) {
+    .content-container {
+        overflow-y: scroll;
+    }
+}
